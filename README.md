@@ -1,32 +1,33 @@
 # README
 
 * Database
+
 ### users (gem devise)
-* association
+* association  
 has_many :favorite_articles  
 has_many :articles, through: :favorite_articles
 
-* column
+* column  
 nickname :string, null: false
 
 
 ### articles
-* association
+* association  
 has_many :favorite_articles  
 has_many :users, through: :favorite_articles
 
-* column
+* column  
 body :text, null: false  
 title :string, null: false  
 image :string, null: false
 
 
 ### favorite_articles
-* association
+* association  
 belongs_to :user  
 belongs_to :article
 
-* column
+* column  
 references :user, foreign_key: true  
 references :article, foreign_key: true
 
