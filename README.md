@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Database design
 
-Things you may want to cover:
+### users (gem devise)
+* association  
+has_many :favorite_articles  
+has_many :articles, through: :favorite_articles
 
-* Ruby version
+* column  
+nickname :string, null: false
 
-* System dependencies
 
-* Configuration
+### articles
+* association  
+has_many :favorite_articles  
+has_many :users, through: :favorite_articles
 
-* Database creation
+* column  
+body :text, null: false  
+title :string, null: false  
+image :string, null: false
 
-* Database initialization
 
-* How to run the test suite
+### favorite_articles
+* association  
+belongs_to :user  
+belongs_to :article
 
-* Services (job queues, cache servers, search engines, etc.)
+* column  
+references :user, foreign_key: true  
+references :article, foreign_key: true
 
-* Deployment instructions
-
-* ...
+## Ruby
+* version 2.3.1
