@@ -1,6 +1,6 @@
 # README
 
-* Database
+## Database design
 
 ### users (gem devise)
 * association  
@@ -31,5 +31,5 @@ belongs_to :article
 references :user, foreign_key: true  
 references :article, foreign_key: true
 
-
-* Ruby version 2.3.1
+## Ruby
+* version 2.3.1
