@@ -124,3 +124,19 @@ legend {
 }
 /* YUI CSS Detection Stamp */
 #yui3-css-stamp.cssreset { display: none; }
+
+a, a:link, a:visited {
+  color: #222;
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+body, input, textarea {
+  color: #222;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
