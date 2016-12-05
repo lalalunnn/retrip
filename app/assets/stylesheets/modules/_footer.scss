@@ -1,0 +1,141 @@
+footer {
+  border-top: #eee solid 1px;
+  @include clearfix();
+}
+
+footer .footerInner {
+  width: 1030px;
+  margin: 0 auto;
+  padding: 25px 25px 30px;
+}
+
+
+footer .footerInner .footerNavi {
+  @include clearfix();
+}
+
+footer .footerInner .footerNavi .blockLeft {
+  width: 560px;
+  float: left;
+}
+
+footer .footerInner .footerNavi h2 {
+  font-size: 13px;
+  font-weight: bold;
+  color: #555;
+  padding: 12px 0 5px;
+}
+
+footer .footerInner .footerNavi .blockLeft ul {
+  padding: 2px 20px 0 0;
+  max-height: 52px;
+  overflow: hidden;
+  line-height: 24px;
+}
+
+footer .footerInner .footerNavi .blockLeft ul li {
+  display: inline-block;
+  padding-right: 12px;
+  color: #666; // 仮
+  font-size: 12px; // 仮
+}
+footer .footerInner .footerNavi .blockLeft ul li a:hover{
+  text-decoration: underline; // 仮
+}
+footer .footerInner .footerNavi .blockLeft ul li i{
+  color: #c3c3c3; // 仮
+}
+
+footer .footerInner .footerNavi a {
+  color: #666;
+  font-size: 12px;
+  display: inline-block;
+}
+
+
+footer .footerInner .footerNavi .blockRight {
+  width: 470px;
+  float: right;
+}
+
+footer .footerInner .footerNavi .blockRight ul.cell {
+  display: inline-block;// 仮
+  line-height: 28px;// 仮
+  color: #666; // 仮
+  font-size: 12px; // 仮
+}
+footer .footerInner .footerNavi .blockRight ul.cell li {
+  padding-right: 30px;// 仮
+}
+footer .footerInner .footerNavi .blockRight .cellWrap ul.cell li a:hover{
+  text-decoration: underline; // 仮
+}
+
+footer .footerInner .footerNavi .blockRight .cellWrap {
+  display: table;
+  width: 100%;
+  line-height: 28px;
+  table-layout: fixed;
+}
+
+
+footer .footerBottom {
+  clear: both;
+  height: 55px;
+  overflow: hidden;
+  background: #F9F9F9;
+  width: 100%;
+  text-align: right;
+  border-top: solid 1px #f3f3f3;
+}
+
+footer .footerBottom .footerBottomInner {
+  min-width: 1030px;
+  position: relative;
+  padding: 0 25px;
+}
+
+footer .footerBottom .footerBottomInner #logo {
+  position: absolute;
+  top: 14px;
+  left: 25px;
+}
+
+footer .footerBottom .footerBottomInner .copyright {
+  font-size: 10px;
+  font-weight: normal;
+  font-family: 'Montserrat',sans-serif;
+  line-height: 55px;
+  color: #bbb;
+  position: absolute;
+  left: 100px;
+  top: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+footer .footerBottom .footerBottomInner .socialIcon li {
+  display: inline-block; // 仮
+  line-height: 55px; // 仮
+}
+
+footer .footerBottom .footerBottomInner .socialIcon li a {
+  display: inline-block;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  line-height: 35px;
+}
+
+footer .fa-instagram {
+  font-size: 19px;
+  color: #555;
+}
+footer .fa-twitter {
+  font-size: 23px;
+  color: #55acee;
+}
+footer .fa-facebook {
+  font-size: 21px;
+  color: #3b5998;
+}

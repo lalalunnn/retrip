@@ -1,0 +1,69 @@
+.paginateWrap{
+  @include clearfix();
+}
+
+.pagination {
+  padding-bottom: 30px;
+  font-family: 'Montserrat',sans-serif;
+  padding: 45px 0 0;
+  text-align: center;
+  height: 40px;
+  font-size: 17px;
+  color: #BBB;
+  clear: both;
+  position: relative;
+}
+
+.pagination .page {
+  color: #BBB;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 13px;
+  margin: 0 3px;
+  height: 40px;
+  line-height: 39px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.pagination .page.current,
+.pagination .page.current:hover {
+  font-weight: bold;
+  height: 39px;
+  border-bottom: #444 solid 1px;
+  color: #444;
+  cursor: default;
+}
+
+.pagination .prev,
+.pagination .next {
+  text-indent: -9999px;
+  width: 55px;
+  height: 40px;
+  display: inline-block;
+  background-image: url("icon_pagination.png");
+  background-size: 110px 80px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 45px;
+}
+
+.pagination .prev {
+  background-position: left top;
+  left: 0;
+}
+
+.pagination .prev:hover {
+  background-position: left bottom;
+  left: 0;
+}
+
+.pagination .next {
+  background-position: right top;
+  right: 0;
+}
+
+.pagination .next:hover {
+  background-position: right bottom;
+  right: 0;
+}
