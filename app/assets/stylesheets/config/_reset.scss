@@ -130,6 +130,10 @@ a, a:link, a:visited {
   text-decoration: none;
 }
 
+a:hover {
+  opacity: 0.8;
+}
+
 img {
   vertical-align: middle;
 }
