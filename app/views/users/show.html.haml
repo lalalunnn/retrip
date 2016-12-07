@@ -1,2 +1,80 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+= render "articles/header"
+
+%div#mainWrap.users
+
+  %div.usersArticle
+    %div.usersTab
+      %ul
+        %li.selected
+          %span お気に入りしたまとめ
+        %li
+          = link_to "お気に入りしたスポット", root_path, { title: "お気に入りしたスポット" }
+        %li
+          = link_to "作ったまとめ", root_path, { title: "作ったまとめ" }
+
+    %section.expBottomGridList
+      %ul
+        %li.exp
+          = link_to image_tag("article2.jpg", { width: "110", height:"80", class: "img" }), root_path
+          %div.title
+            = link_to "あの「星のや」が南国へ？星野リゾートがタヒチに進出しホテル運営を開始", root_path
+          %div.expList
+            %p.day 2016年12月4日
+            %div.ListcountView
+              %i.fa.fa-eye.Listicon-view
+              %span 6122
+            = link_to "oniku_niconico", root_path, { class: "name" }
+          %div.expAdminCount
+            %i.fa.fa-heart.icon-fav-on
+            %span 23
+            %i.fa.fa-eye.icon-view
+            %span 12345
+        %li.exp
+          = link_to image_tag("article2.jpg", { width: "110", height:"80", class: "img" }), root_path
+          %div.title
+            = link_to "あの「星のや」が南国へ？星野リゾートがタヒチに進出しホテル運営を開始", root_path
+          %div.expList
+            %p.day 2016年12月4日
+            %div.ListcountView
+              %i.fa.fa-eye.Listicon-view
+              %span 6122
+            = link_to "oniku_niconico", root_path, { class: "name" }
+          %div.expAdminCount
+            %i.fa.fa-heart.icon-fav-on
+            %span 23
+            %i.fa.fa-eye.icon-view
+            %span 12345
+
+
+  %div.usersSideBar
+    %div.usersHead
+      %span.userIcon
+        = image_tag("icon_user_default.jpg", { width: "155", height: "155" })
+      %ul.userData
+        %li
+          %p.h まとめ記事作成数
+          %p.amount 0
+        %li
+          %p.h お気に入りされた数
+          %p.amount 0
+        %li
+          %p.h 月間ページビュー
+          %p.amount 0
+    %div.usersInfo
+      %h1.userName jabsdbaf_kjasd
+      %p.userId @jabsdbaf_kjasd
+
+%div#mainFooter
+  %div.content
+    %ul.breadList
+      %li
+        = link_to "トップページ  >", root_path, { title: "トップページ" }
+      %li
+        = link_to "jabsdbaf_kjasd  >" , root_path, { title: "jabsdbaf_kjasd" }
+      %li
+        = link_to "お気に入りしたまとめ", root_path, { title: "お気に入りしたまとめ" }
+
+
+= render "articles/footer_induction"
+
+= render "articles/footer"
