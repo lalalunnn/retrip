@@ -6,38 +6,37 @@
       %li
         = link_to "トップページ  >", root_path, { title: "トップページ" }
       %li
-        = link_to "RETRIPにアカウント登録", root_path, { title: "RETRIPにアカウント登録" }
+        = link_to "ユーザーログイン", root_path, { title: "ユーザーログイン" }
 
 %div#mainWrap
   %div.contentTopTitle
-    %h1 RETRIPにアカウント登録
+    %h1 ユーザーログイン
     %div.articleMainFull
       %div#main
         %div.contentWrap
           %div.content.signUp
             %aside
-              = link_to "既に会員の方はこちら >", new_user_session_path
+              = link_to "新規登録はこちら >", new_user_registration_path
             %section#form.loginWrap.blockLeft
-              %h2 メールアドレスで登録
+              %h2 メールアドレスでログイン
               %form{ :method => "POST", :class =>"ng-pristine ng-valid" }
                 %ul.mailLogin
-                  %li
-                    %input{ :type =>"text", :name =>"username", :value =>"", :class =>"inputArea", :placeholder => "ユーザーID(半角英数字・3文字以上)※変更不可", size: "30" }
+                
                   %li
                     %input{ :type =>"email", :name =>"email", :value =>"", :class =>"inputArea", :placeholder => "メールアドレス", size: "30" }
                   %li
                     %input{ :type =>"password", :name =>"password", :value =>"", :class =>"inputArea", :placeholder => "パスワード（半角英数字・8文字以上）", size: "30" }
-                %input{ :type =>"submit", :class =>"btn",:value => "アカウント登録" }
+                %input{ :type =>"submit", :class =>"btn",:value => "ログイン" }
 
             %section#form.loginWrap.blockRight
-              %h2 SNSアカウントで登録
+              %h2 SNSアカウントでログイン
               %ul.snsLogin
                 %li
                   = link_to root_path, { class: "facebook" } do
-                    %span.icon-facebook Facebookアカウントで登録
+                    %span.icon-facebook Facebookアカウントでログイン
                 %li
                   = link_to root_path, { class: "twitter" } do
-                    %span.icon-twitter Twitterアカウントで登録
+                    %span.icon-twitter Twitterアカウントでログイン
               %p Facebook・Twitterに許可なく投稿されることはありません
 
             %p.agreement 登録すると、利用規約およびプライバシーポリシーに同意したことになります。

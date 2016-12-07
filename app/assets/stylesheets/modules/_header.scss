@@ -87,6 +87,41 @@ header {
   padding-right: 50px;
 }
 
+header .headerInner .headerMenu {
+  position: absolute;
+  top: 27px;
+  right: 25px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 11px;
+  color: #666;
+  text-align: right;
+  padding-right: 50px;
+}
+
+header .headerInner .headerMenu .userName {
+  padding: 0 20px 0 35px;
+  display: inline-block;
+  position: relative;
+}
+
+header .headerInner .headerMenu .userName .userIcon {
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+  // position: absolute;
+  // left: 0;
+  // top: 2px;
+  background-position: 50%;
+  background-size: auto 100%;
+}
+
+
 .headerMenu .newArt {
   display: inline-block;
 }

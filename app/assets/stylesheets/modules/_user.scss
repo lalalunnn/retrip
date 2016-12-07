@@ -188,3 +188,20 @@
   line-height: 1;
   text-align: center;
 }
+
+
+
+#mainWrap.users .expBottomGridList .exp .expAdminCount,
+#mainWrap.users .expBottomGridList .exp .expAdminFav {
+  color: #555;
+  font-family: 'Montserrat',sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  right: 0;
+  bottom: 17px;
+}
+

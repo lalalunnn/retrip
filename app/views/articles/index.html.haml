@@ -39,20 +39,16 @@
       %h2 エリア一覧
       %ul
         %li
-          = link_to root_path, { class: "areaName", title: "日本"} do
-            = image_tag("area.png", { class: "img", width: "50", height: "50" })
+          = link_to image_tag("area.png", { class: "img", width: "50", height: "50" }), root_path, { class: "areaName", title: "日本"}
           = link_to "日本", root_path, { class: "areaName", title: "日本"}
         %li
-          = link_to root_path, { class: "areaName", title: "北米"} do
-            = image_tag("area.png", { class: "img", width: "50", height: "50" })
+          = link_to image_tag("area.png", { class: "img", width: "50", height: "50" }), root_path, { class: "areaName", title: "北米"}
           = link_to "北米", root_path, { class: "areaName", title: "北米"}
         %li
-          = link_to root_path, { class: "areaName", title: "中南米"} do
-            = image_tag("area.png", { class: "img", width: "50", height: "50" })
+          = link_to image_tag("area.png", { class: "img", width: "50", height: "50" }), root_path, { class: "areaName", title: "中南米"}
           = link_to "中南米", root_path, { class: "areaName", title: "中南米"}
         %li
-          = link_to root_path, { class: "areaName", title: "アフリカ"} do
-            = image_tag("area.png", { class: "img", width: "50", height: "50" })
+          = link_to image_tag("area.png", { class: "img", width: "50", height: "50" }), root_path, { class: "areaName", title: "アフリカ"}
           = link_to "アフリカ", root_path, { class: "areaName", title: "アフリカ"}
       %div.sideBarLink
         = link_to "エリア一覧 >", root_path, { title: "エリア一覧"}
