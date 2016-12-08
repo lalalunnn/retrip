@@ -1,0 +1,20 @@
+= render "articles/header"
+
+%div#mainWrap
+  %div.contentTopTitle
+    %h2 まとめをつくる
+    %div.content.contactForm.articlesForm
+      %form{ :meshod => "post", :class => "articleForm"}
+        %ul.article
+          %li
+            %input{ :type => "text", :name => "title", :value => "", :class => "inputArea", :placeholder => "まとめタイトルを入力する", size: "30"}
+          %li
+            %textarea{ :type =>"text", :name =>"body", :value =>"", :class =>"inputArea", :placeholder => "まとめの説明文を入力する"}
+          %li
+            %label.article_image--file
+              %i.fa.fa-image
+        %input{ :type =>"submit", :class =>"btn",:value => "投稿する" }
+
+= render "articles/footer_induction"
+
+= render "articles/footer"
