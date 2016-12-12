@@ -1,37 +1,6 @@
 = render "header"
 
-%div#indexMain
-  %div.content
-    = link_to root_path, { class: "contentSlider", title: '年末年始はどこへ行く？2016年"人気旅行先ランキング"TOP10' } do
-      = image_tag("article1.jpg", { class: "contentSliderImg", width: "auto", height: "300" })
-      %div.contentSliderTitle
-        %h1 年末年始はどこへ行く？2016年"人気旅行先ランキング"TOP10
-      %div.contentSliderInfo
-        %div.countView
-          %i.fa.fa-eye.icon-view
-          %span 12345
-        %span.name mapleuno
-
-    = link_to root_path, { class: "contentSlider", title: '年末年始はどこへ行く？2016年"人気旅行先ランキング"TOP10' } do
-      = image_tag("article2.jpg", { class: "contentSliderImg", width: "auto", height: "300" })
-      %div.contentSliderTitle
-        %h1 年末年始はどこへ行く？2016年"人気旅行先ランキング"TOP10
-      %div.contentSliderInfo
-        %div.countView
-          %i.fa.fa-eye.icon-view
-          %span 12345
-        %span.name yakiyaki_nikuniku
-
-    = link_to root_path, { class: "contentSlider", title: '年末年始はどこへ行く？2016年"人気旅行先ランキング"TOP10' } do
-      = image_tag("article3.jpg", { class: "contentSliderImg", width: "auto", height: "300" })
-      %div.contentSliderTitle
-        %h1 年末年始はどこへ行く？2016年"人気旅行先ランキング"TOP10
-      %div.contentSliderInfo
-        %div.countView
-          %i.fa.fa-eye.icon-view
-          %span 12345
-        %span.name isofura_bonbon
-
+= render "indexMain"
 
 %div#mainWrap
   %div.articleSide.sideBar
@@ -39,7 +8,7 @@
       %h2 エリア一覧
       %ul
         %li
-          = link_to image_tag("area.png", { class: "img", width: "50", height: "50" }), root_path, { class: "areaName", title: "日本"}
+          = link_to image_tag("area2.jpg", { class: "img", width: "50", height: "50" }), root_path, { class: "areaName", title: "日本"}
           = link_to "日本", root_path, { class: "areaName", title: "日本"}
         %li
           = link_to image_tag("area.png", { class: "img", width: "50", height: "50" }), root_path, { class: "areaName", title: "北米"}
@@ -139,6 +108,7 @@
         %ul
           %li
             %div.exp
+              = link_to "aaa", article_path(1)
               = link_to root_path, { title: "雪の絶景が堪能できる露天風呂！青森県の“冬に泊まりたい温泉宿”8選" } do
                 = image_tag("article3.jpg", { class: "img", width: "170", height: "120" })
               %div.title

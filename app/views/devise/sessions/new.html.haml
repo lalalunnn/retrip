@@ -1,12 +1,6 @@
 = render "articles/header"
 
-%div#mainHeader
-  %div.content
-    %ul.breadList
-      %li
-        = link_to "トップページ  >", root_path, { title: "トップページ" }
-      %li
-        = link_to "ユーザーログイン", root_path, { title: "ユーザーログイン" }
+= render "articles/mainHeader"
 
 %div#mainWrap
   %div.contentTopTitle
