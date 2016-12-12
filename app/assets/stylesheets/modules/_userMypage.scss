@@ -5,6 +5,7 @@
 #mainWrap.users .usersArticle {
   width: 700px;
   float: right;
+  padding-top: 35px;
 }
 
 #mainWrap.users .usersTab {
@@ -48,10 +49,6 @@
   text-align: center;
   font-size: 14px;
   border-bottom: #444 solid 1px;
-}
-
-#mainWrap.users .usersTab ul li:hover {
-  // border-bottom: none;
 }
 
 #mainWrap.users .usersTab ul li a {
@@ -124,7 +121,7 @@
 #mainWrap.users .usersSideBar {
   width: 300px;
   float: left;
-  padding-top: 5px;
+  padding-top: 40px;
 }
 
 #mainWrap.users .usersSideBar .usersHead {
@@ -238,6 +235,3 @@
 #mainFooter .content ul li a {
   color: #666;
 }
-
-
-// #1991ba;

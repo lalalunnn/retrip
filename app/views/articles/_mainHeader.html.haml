@@ -1,0 +1,9 @@
+/ パンくずリスト
+/ ユーザーログイン画面のみ
+%div#mainHeader
+  %div.content
+    %ul.breadList
+      %li
+        = link_to "トップページ", root_path, { title: "トップページ" }
+      %li
+        = link_to "ユーザーログイン", root_path, { title: "ユーザーログイン" }

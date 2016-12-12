@@ -1,31 +1,3 @@
-#mainHeader {
-  border-bottom: #eee solid 1px;
-  @include clearfix();
-}
-
-#mainHeader .content {
-    width: 1030px;
-    margin: 0 auto;
-    padding: 9px 25px;
-}
-
-#mainHeader .content ul {
-  font-size: 12px;
-  color: #666;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-#mainHeader .content ul li {
-  display: inline;
-  line-height: 1.6;
-}
-
-#mainHeader .content ul li a {
-  color: #666;
-  cursor: pointer;
-}
 
 .contentTopTitle {
   padding-top: 50px;

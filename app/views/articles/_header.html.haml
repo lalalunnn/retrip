@@ -1,18 +1,17 @@
 %header
-  %div.headerInner.ng-scope
+  %div.headerInner
     %h1.logo
       = link_to image_tag("logo.png",{ width: "120", height: "30" }), root_path, { id: "logo", class: "hover", title: "demoキュレーションサイト" }
     %div.headerSearch
-      %form{ :method => "get", :class =>"ng-pristine ng-valid" }
-        %input{ :type =>"text", :name =>"q", :value =>"", :class =>"headerSearchInput ng-pristine ng-untouched ng-valid", :placeholder => "気になるワードを入力" }
+      %form{ :method => "get" }
+        %input{ :type =>"text", :name =>"q", :value =>"", :class =>"headerSearchInput", :placeholder => "気になるワードを入力" }
         %input{ :type =>"button", :value =>"", :class =>"headerSearchBtn" }
-          %i.fa.fa-search
 
     %div.headerMenu
       %span.userName
         = link_to image_tag("icon_user_default.jpg", { width: "25", height: "25", class: "userIcon" }), users_show_path
         = "jabsdbaf_kjasd"
       %span.newArt
-        = link_to "まとめをつくる", root_path
+        = link_to "まとめをつくる", new_article_path
       %span.newSet
         = link_to image_tag("icon_header_menu.png", { width: "25", height: "22", alt: "MENU" }), new_user_registration_path

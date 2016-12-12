@@ -1,0 +1,77 @@
+= render "articles/header"
+
+%div#mainHeader.articleHeader
+  %div.content
+    %ul.breadList
+      %li
+        = link_to "トップページ", root_path, { title: "トップページ" }
+      %li
+        = link_to "エリア一覧", root_path, { title: "エリア一覧" }
+      %li
+        = link_to "アジア", root_path, { title: "アジア" }
+      %li
+        = link_to "日本", root_path, { title: "日本" }
+
+
+%div#mainWrap.articlesContent
+  %div.contentTopTitle
+    %h1
+      =link_to @article.title, root_path
+    %p.contentTopInfo
+      %span.userIcon 画像
+      %span.name "oniku_niconico"
+      %span.day 2014年10月16日
+    %div.contentStatusArea
+      %div.contentStatusAreaFav
+        = link_to root_path do
+          %p.sum.ng-binding 28
+          %p.sumText お気に入り
+      %div.contentStatusAreaCount
+        = link_to root_path do
+          %p.sum.ng-binding 33256
+          %p.sumText View
+      = link_to root_path, { class: "favBtn" } do
+        %span.favBtn ♪お気に入り
+
+  %div.articleSide.sideBar
+    %p 関連するまとめ記事サイドバー
+
+  %div.articleMain
+    %div.contentWrap
+      %div.content
+        %ul.shareTop
+          %li.facebook
+            facebook
+          %li.twitter
+            ツイート
+          %li.google-plus
+            シェア
+          %li.hatena
+            はてぶ
+          %li.pocket
+            あとで
+        %div.contentTop
+          ここには画像がきます
+        %div.contentTopDesc
+          日本ならではのスイーツ「和菓子」。伝統的な和菓子ももちろん魅力的ですが、かわいらしくモダンな和菓子も気になりますよね。今回は手土産にもぴったりなかわいくモダンな和菓子をご紹介します。自分へのご褒美やプレゼントにもいかがですか？
+        %article
+
+    %div.socialBottom
+      %div.share
+        = link_to "facebookでシェア", root_path, {class: "facebook" }
+        = link_to "twitterでシェア", root_path, {class: "twitter" }
+        = link_to "☆", root_path, {class: "fav" }
+
+%div#mainFooter
+  %div.content
+    %ul.breadList
+      %li
+        = link_to "トップページ", root_path, { title: "トップページ" }
+      %li
+        = link_to "jabsdbaf_kjasd" , root_path, { title: "jabsdbaf_kjasd" }
+      %li
+        = link_to "お気に入りしたまとめ", root_path, { title: "お気に入りしたまとめ" }
+
+= render "articles/footer_induction"
+
+= render "articles/footer"
