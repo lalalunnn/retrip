@@ -1,7 +1,7 @@
 %header
   %div.headerInner
     %h1.logo
-      = link_to image_tag("logo.png",{ width: "120", height: "30" }), root_path, { id: "logo", class: "hover", title: "demoキュレーションサイト" }
+      = link_to image_tag("logo.png",{ width: "120" }), root_path, { id: "logo", class: "hover", title: "demoキュレーションサイト" }
     %div.headerSearch
       %form{ :method => "get" }
         %input{ :type =>"text", :name =>"q", :value =>"", :class =>"headerSearchInput", :placeholder => "気になるワードを入力" }

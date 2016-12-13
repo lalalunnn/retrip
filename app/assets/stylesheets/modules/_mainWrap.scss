@@ -231,7 +231,6 @@
 
 
 // article show
-// 左
 .articlesContent {
   .contentTopTitle {
     position: relative;
@@ -347,6 +346,13 @@ ul.shareTop {
     border-bottom: #CC3750 solid 2px;
     width: 129px;
     margin-right: 0;
+  }
+}
+
+
+.contentTop {
+  .img{
+    margin-bottom: 20px;
   }
 }
 

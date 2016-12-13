@@ -1,31 +1,15 @@
 %div#indexMain
   %div.content
-    = link_to root_path, { class: "contentSlider", title: '年末年始はどこへ行く？2016年"人気旅行先ランキング"TOP10' } do
-      = image_tag("article1.jpg", { class: "contentSliderImg", width: "auto", height: "300" })
-      %div.contentSliderTitle
-        %h1 年末年始はどこへ行く？2016年"人気旅行先ランキング"TOP10
-      %div.contentSliderInfo
-        %div.countView
-          %i.fa.fa-eye.icon-view
-          %span 12345
-        %span.name mapleuno
-
-    = link_to root_path, { class: "contentSlider", title: '年末年始はどこへ行く？2016年"人気旅行先ランキング"TOP10' } do
-      = image_tag("article2.jpg", { class: "contentSliderImg", width: "auto", height: "300" })
-      %div.contentSliderTitle
-        %h1 年末年始はどこへ行く？2016年"人気旅行先ランキング"TOP10
-      %div.contentSliderInfo
-        %div.countView
-          %i.fa.fa-eye.icon-view
-          %span 12345
-        %span.name yakiyaki_nikuniku
-
-    = link_to root_path, { class: "contentSlider", title: '年末年始はどこへ行く？2016年"人気旅行先ランキング"TOP10' } do
-      = image_tag("article3.jpg", { class: "contentSliderImg", width: "auto", height: "300" })
-      %div.contentSliderTitle
-        %h1 年末年始はどこへ行く？2016年"人気旅行先ランキング"TOP10
-      %div.contentSliderInfo
-        %div.countView
-          %i.fa.fa-eye.icon-view
-          %span 12345
-        %span.name isofura_bonbon
+    - @sliders.each do |slider|
+      = link_to article_path(slider.id), { class: "contentSlider", title: slider.title } do
+        = image_tag("article2.jpg", { class: "contentSliderImg", width: "auto", height: "300" })
+        %div.contentSliderTitle
+          %h1
+            = slider.title
+        %div.contentSliderInfo
+          %div.countView
+            %i.fa.fa-eye.icon-view
+            %span 12345
+          %span.name
+            ここに名前
+            / # = slider.user.nickname

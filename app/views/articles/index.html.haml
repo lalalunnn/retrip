@@ -106,33 +106,22 @@
       %h2 注目のまとめ
       %section.expBottomGridList
         %ul
-          %li
-            %div.exp
-              = link_to "aaa", article_path(1)
-              = link_to root_path, { title: "雪の絶景が堪能できる露天風呂！青森県の“冬に泊まりたい温泉宿”8選" } do
-                = image_tag("article3.jpg", { class: "img", width: "170", height: "120" })
-              %div.title
-                = link_to '雪の絶景が堪能できる露天風呂！青森県の“冬に泊まりたい温泉宿”8選', root_path, { title: "雪の絶景が堪能できる露天風呂！青森県の“冬に泊まりたい温泉宿”8選" }
-              %p.expDesc 寒い冬には温泉へ行きたくなりますよね。青森県では雪の絶景も楽しめる露天風呂付きの宿もあります。今回は冬の青森旅行で利用したい雪の絶景が楽しめるおすすめ温泉...
-              %div.expList
-                %p.day 2016年12月4日
-                %div.ListcountView
-                  %i.fa.fa-eye.Listicon-view
-                  %span 6122
-                = link_to "oniku_niconico", root_path, { class: "name" }
-          %li
-            %div.exp
-              = link_to root_path, { title: "雪の絶景が堪能できる露天風呂！青森県の“冬に泊まりたい温泉宿”8選" } do
-                = image_tag("article3.jpg", { class: "img", width: "170", height: "120" })
-              %div.title
-                = link_to '雪の絶景が堪能できる露天風呂！青森県の“冬に泊まりたい温泉宿”8選', root_path, { title: "雪の絶景が堪能できる露天風呂！青森県の“冬に泊まりたい温泉宿”8選" }
-              %p.expDesc 寒い冬には温泉へ行きたくなりますよね。青森県では雪の絶景も楽しめる露天風呂付きの宿もあります。今回は冬の青森旅行で利用したい雪の絶景が楽しめるおすすめ温泉...
-              %div.expList
-                %p.day 2016年12月4日
-                %div.ListcountView
-                  %i.fa.fa-eye.Listicon-view
-                  %span 16199
-                = link_to "oniku_niconico", root_path, { class: "name" }
+          - @articles.each do |article|
+            %li
+              %div.exp
+                = link_to article_path(article.id), { title: article.title } do
+                  = image_tag("article3.jpg", { class: "img", width: "170", height: "120" })
+                %div.title
+                  = link_to article.title, article_path(article.id), { title: article.title }
+                %p.expDesc
+                  = article.body
+                %div.expList
+                  %p.day
+                    = article.created_at.strftime('%Y年%m月%d日')
+                  %div.ListcountView
+                    %i.fa.fa-eye.Listicon-view
+                    %span 6122
+                  = link_to "oniku_niconico", root_path, { class: "name" }
 
       %div.paginateWrap
         %div.pagination
