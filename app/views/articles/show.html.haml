@@ -16,11 +16,12 @@
 %div#mainWrap.articlesContent
   %div.contentTopTitle
     %h1
-      =link_to @article.title, root_path
+      =link_to @article.title, article_path(params[:id])
     %p.contentTopInfo
       %span.userIcon 画像
       %span.name "oniku_niconico"
-      %span.day 2014年10月16日
+      %span.day
+        = @article.created_at.strftime('%Y年%m月%d日')
     %div.contentStatusArea
       %div.contentStatusAreaFav
         = link_to root_path do
@@ -51,9 +52,9 @@
           %li.pocket
             あとで
         %div.contentTop
-          ここには画像がきます
+          = image_tag "article2.jpg", class: "img", width: "700"
         %div.contentTopDesc
-          日本ならではのスイーツ「和菓子」。伝統的な和菓子ももちろん魅力的ですが、かわいらしくモダンな和菓子も気になりますよね。今回は手土産にもぴったりなかわいくモダンな和菓子をご紹介します。自分へのご褒美やプレゼントにもいかがですか？
+          = @article.body
         %article
 
     %div.socialBottom

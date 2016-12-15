@@ -4,16 +4,14 @@
   %div.contentTopTitle
     %h2 まとめをつくる
     %div.content.contactForm.articlesForm
-      %form{ :meshod => "post", :class => "articleForm"}
-        %ul.article
-          %li
-            %input{ :type => "text", :name => "title", :value => "", :class => "inputArea", :placeholder => "まとめタイトルを入力する", size: "30"}
-          %li
-            %textarea{ :type =>"text", :name =>"body", :value =>"", :class =>"inputArea", :placeholder => "まとめの説明文を入力する"}
-          %li
-            %label.article_image--file
-              %i.fa.fa-image
-        %input{ :type =>"submit", :class =>"btn",:value => "投稿する" }
+      = form_for @article, method: "post" do |f|
+        .articleInput
+          = f.text_field :title, name: "title", class: "inputArea", placeholder: "まとめタイトルを入力する"
+          = f.text_area :body, name: "body", class: "inputArea", placeholder: "まとめの説明文を入力する"
+          %label.article_image--file
+            = f.file_field :image
+            %i.fa.fa-image
+        = f.submit name: "commit",class: "btn", value: "投稿する", id: "submit", data: { disable_with: "送信中..." }
 
 = render "articles/footer_induction"
 
