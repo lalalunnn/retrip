@@ -115,3 +115,30 @@ header .headerInner .headerMenu {
     }
   }
 }
+
+header .headerInner .headerMenuDialog {
+  width: 160px;
+  position: absolute;
+  background: #F5F5F5;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  right: 0;
+  top: 48px;
+  z-index: 1000;
+  li {
+    border-bottom: #fff solid 1px;
+    position: relative;
+    a {
+      padding: 8px 15px;
+      color: #666;
+      text-align: left;
+      display: block;
+    }
+  }
+  li:last-child {
+    border-bottom: none;
+  }
+}

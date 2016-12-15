@@ -15,3 +15,16 @@
         = link_to "まとめをつくる", new_article_path
       %span.newSet
         = link_to image_tag("icon_header_menu.png", { width: "25", height: "22", alt: "MENU" }), new_user_registration_path
+      %ul.headerMenuDialog
+        - if user_signed_in?
+          %li
+            = link_to 'お知らせ', root_path
+          %li
+            = link_to 'プロフィール編集', edit_user_registration_path
+          %li
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %li
+            = link_to "サインイン", new_user_registration_path
+          %li
+            = link_to "ログイン", new_user_session_path
