@@ -3,7 +3,7 @@ before_action :set_article, only: [ :show]
 
   def index
     # 注目のまとめ
-    @articles = Article.all.page(params[:page]).per(10).order("created_at DESC")
+    @articles = Article.page(params[:page]).per(5).order("created_at DESC")
 
     # indexMain(3画像)
     @sliders = Article.order("RAND()").limit(3)

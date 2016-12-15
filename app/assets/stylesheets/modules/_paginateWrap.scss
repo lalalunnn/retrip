@@ -2,7 +2,7 @@
   @include clearfix();
 }
 
-.pagination {
+nav.pagination {
   font-family: 'Montserrat',sans-serif;
   padding: 45px 0 0;
   padding-bottom: 45px;
@@ -12,6 +12,14 @@
   color: #BBB;
   clear: both;
   position: relative;
+  .page.current,
+  .page.current:hover {
+    font-weight: bold;
+    height: 39px;
+    border-bottom: #444 solid 1px;
+    color: #444;
+    cursor: default;
+  }
   .page {
     color: #BBB;
     cursor: pointer;
@@ -23,44 +31,63 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  .page:hover {
+    font-weight: bold;
+    height: 39px;
+    border-bottom: #1991ba solid 1px;
+    color: #1991ba;
+    cursor: default;
+    a {
+      font-weight: bold;
+      height: 39px;
+      color: #1991ba;
+      cursor: default;
+    }
+  }
+
 }
 
-.pagination .page.current,
-.pagination .page.current:hover {
-  font-weight: bold;
-  height: 39px;
-  border-bottom: #444 solid 1px;
-  color: #444;
-  cursor: default;
+.pagination {
+  .prev {
+    a {
+      background-position: left top;
+      left: 0;
+    }
+  }
+  .prev:hover {
+    a {
+      background-position: left bottom;
+      left: 0;
+    }
+  }
+  .next {
+    a {
+      background-position: right top;
+      right: 0;
+    }
+  }
+  .next:hover {
+    a {
+      background-position: right bottom;
+      right: 0;
+    }
+  }
+
+  .prev a,
+  .next a {
+    text-indent: -9999px;
+    width: 55px;
+    height: 40px;
+    display: inline-block;
+    background-image: url("icon_pagination.png");
+    background-size: 110px 80px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 45px;
+  }
 }
 
-.pagination .prev,
-.pagination .next {
-  text-indent: -9999px;
-  width: 55px;
-  height: 40px;
-  display: inline-block;
-  background-image: url("icon_pagination.png");
-  background-size: 110px 80px;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 45px;
-}
-
-.pagination .prev {
-  background-position: left top;
-  left: 0;
-}
-.pagination .prev:hover {
-  background-position: left bottom;
-  left: 0;
-}
-
-.pagination .next {
-  background-position: right top;
-  right: 0;
-}
-.pagination .next:hover {
-  background-position: right bottom;
-  right: 0;
+.pagination .first,
+.pagination .last {
+  display: none;
 }
