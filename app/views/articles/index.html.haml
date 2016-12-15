@@ -125,15 +125,7 @@
 
       %div.paginateWrap
         %div.pagination
-          %span.current.page 1
-          = link_to "2", root_path, { class: "page" }
-          = link_to "3", root_path, { class: "page" }
-          = link_to "4", root_path, { class: "page" }
-          = link_to "5", root_path, { class: "page" }
-          %span.kara ...
-          = link_to "25", root_path, { class: "page" }
-          = link_to "26", root_path, { class: "page" }
-          = link_to "次へ", root_path, { class: "next" }
+          = paginate @articles
 
 = render "footer_induction"
 
