@@ -61,8 +61,10 @@
           %p.h 月間ページビュー
           %p.amount 0
     %div.usersInfo
-      %h1.userName jabsdbaf_kjasd
-      %p.userId @jabsdbaf_kjasd
+      %h1.userName
+        = current_user.nickname
+      %p.userId
+        = "@" + current_user.nickname
 
 %div#mainFooter
   %div.content
