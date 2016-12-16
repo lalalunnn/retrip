@@ -8,10 +8,30 @@
         %input{ :type =>"button", :value =>"", :class =>"headerSearchBtn" }
 
     %div.headerMenu
-      %span.userName
-        = link_to image_tag("icon_user_default.jpg", { width: "25", height: "25", class: "userIcon" }), users_show_path
-        = "jabsdbaf_kjasd"
-      %span.newArt
-        = link_to "まとめをつくる", new_article_path
-      %span.newSet
-        = link_to image_tag("icon_header_menu.png", { width: "25", height: "22", alt: "MENU" }), new_user_registration_path
+      - if user_signed_in?
+        %span.userName
+          = link_to image_tag("icon_user_default.jpg", { width: "25", height: "25", class: "userIcon" }), users_show_path
+          = current_user.nickname
+        %span.newArt
+          = link_to "まとめをつくる", new_article_path
+        %span.newSet
+          = link_to image_tag("icon_header_menu.png", { width: "25", height: "22", alt: "MENU" }), new_user_registration_path
+      - else
+        %span.newArt
+          = link_to "まとめをつくる", new_user_session_path
+        %span.newSet
+          = link_to image_tag("icon_header_menu.png", { width: "25", height: "22", alt: "MENU" }), new_user_registration_path
+
+      %ul.headerMenuDialog
+        - if user_signed_in?
+          %li
+            = link_to 'お知らせ', root_path
+          %li
+            = link_to 'プロフィール編集', edit_user_registration_path
+          %li
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %li
+            = link_to "ログイン", new_user_session_path
+          %li
+            = link_to "会員登録", new_user_registration_path

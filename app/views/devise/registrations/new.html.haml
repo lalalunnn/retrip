@@ -19,15 +19,17 @@
               = link_to "既に会員の方はこちら >", new_user_session_path
             %section#form.loginWrap.blockLeft
               %h2 メールアドレスで登録
-              %form{ :method => "POST", :class =>"ng-pristine ng-valid" }
+              = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                = devise_error_messages!
+
                 %ul.mailLogin
                   %li
-                    %input{ :type =>"text", :name =>"username", :value =>"", :class =>"inputArea", :placeholder => "ユーザーID(半角英数字・3文字以上)※変更不可", size: "30" }
+                    = f.text_field :nickname, class: "inputArea", placeholder: 'ユーザーID(半角英数字・3文字以上)※変更不可', autofocus: true, maxlength: "6"
                   %li
-                    %input{ :type =>"email", :name =>"email", :value =>"", :class =>"inputArea", :placeholder => "メールアドレス", size: "30" }
+                    = f.email_field :email, class: "inputArea", placeholder: "メールアドレス"
                   %li
-                    %input{ :type =>"password", :name =>"password", :value =>"", :class =>"inputArea", :placeholder => "パスワード（半角英数字・8文字以上）", size: "30" }
-                %input{ :type =>"submit", :class =>"btn",:value => "アカウント登録" }
+                    = f.password_field :password, class: "inputArea", placeholder: "パスワード（半角英数字・8文字以上）"
+                = f.submit "アカウント登録", class: "btn"
 
             %section#form.loginWrap.blockRight
               %h2 SNSアカウントで登録
