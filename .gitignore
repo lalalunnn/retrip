@@ -17,6 +17,7 @@
 *.jpeg
 *.jpg
 *.env
+*.svg
 
 # Ignore Byebug command history file.
 .byebug_history
