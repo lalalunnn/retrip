@@ -267,6 +267,18 @@
         font-family: 'Montserrat',sans-serif;
         width: 40%;
         float: left;
+        .sum{
+          font-size: 23.5px;
+        }
+        p.sum:hover{
+          text-decoration: underline;
+        }
+        .sumText{
+          font-size: 10px;
+        }
+        a:hover{
+          opacity: 1;
+        }
       }
       .contentStatusAreaCount {
         text-align: center;
@@ -274,6 +286,16 @@
         font-family: 'Montserrat',sans-serif;
         width: 60%;
         float: left;
+        .sum{
+          font-size: 23.5px;
+        }
+        .sumText{
+          font-size: 10px;
+        }
+        a:hover{
+          opacity: 1;
+          cursor: inherit;
+        }
       }
       .favBtn {
         clear: both;
@@ -413,5 +435,12 @@ ul.shareTop {
     -ms-border-radius: 40px;
     -o-border-radius: 40px;
     border-radius: 40px;
+    display: inline-block;
+    line-height: 73px;
   }
+}
+
+
+.icon-fav-on {
+  color: #ff656a;
 }

@@ -19,23 +19,28 @@
       =link_to @article.title, article_path(params[:id])
     %p.contentTopInfo
       %span.userIcon 画像
-      %span.name "oniku_niconico"
+      %span.name
+        = @article.user.nickname
       %span.day
         = @article.created_at.strftime('%Y年%m月%d日')
     %div.contentStatusArea
       %div.contentStatusAreaFav
         = link_to root_path do
-          %p.sum.ng-binding 28
+          %p.sum.ng-binding
+            = @article.favorite_articles.count
           %p.sumText お気に入り
       %div.contentStatusAreaCount
         = link_to root_path do
           %p.sum.ng-binding 33256
           %p.sumText View
-      = link_to root_path, { class: "favBtn" } do
-        %span.favBtn ♪お気に入り
+
+      - if current_user.favorite_articles.find_by(article_id: @article.id)
+        = link_to image_tag('icon_heart.svg', width: "20")+" 取り消す", unlike_path(@article.id), { method: :delete, class: "favBtn"}
+      - else
+        = link_to image_tag('icon_red_heart.svg', width: "20")+" お気に入り", like_path(@article.id), {method: :post , class: "favBtn" }
 
   %div.articleSide.sideBar
-    %p 関連するまとめ記事サイドバー
+    = render "articles/articleSide"
 
   %div.articleMain
     %div.contentWrap
@@ -61,7 +66,18 @@
       %div.share
         = link_to "facebookでシェア", root_path, {class: "facebook" }
         = link_to "twitterでシェア", root_path, {class: "twitter" }
-        = link_to "☆", root_path, {class: "fav" }
+
+        - if current_user.favorite_articles.find_by(article_id: @article.id)
+          = link_to image_tag('icon_heart.svg', width: "20"), unlike_path(@article.id), { method: :delete, class: "favBtn"}
+        - else
+          = link_to image_tag('icon_red_heart.svg', width: "20"), like_path(@article.id), {method: :post , class: "favBtn" }
+
+        / - if current_user.favorite_articles.find_by(article_id: @article.id)
+        /   = link_to favorite_article_path(@favorite_article.id), { method: :delete, class: "fav" } do
+        /     .icon-fav-on.i.fa.fa-heart
+        / - else
+        /   = link_to favorite_articles_path, { method: :post, class: "fav" } do
+        /     .icon-fav-off.i.fa.fa-heart-o
 
 %div#mainFooter
   %div.content

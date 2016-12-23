@@ -12,40 +12,28 @@
         %li
           = link_to "作ったまとめ", root_path, { title: "作ったまとめ" }
 
+    / ユーザーがお気に入りしたまとめ一覧を表示
     %section.expBottomGridList
       %ul
-        %li.exp
-          = link_to image_tag("article2.jpg", { width: "110", height:"80", class: "img" }), root_path
-          %div.title
-            = link_to "あの「星のや」が南国へ？星野リゾートがタヒチに進出しホテル運営を開始", root_path
-          %div.expList
-            %p.day 2016年12月4日
-            %div.ListcountView
-              %i.fa.fa-eye.Listicon-view
-              %span 6122
-            = link_to "oniku_niconico", root_path, { class: "name" }
-          %div.expAdminCount
-            %i.fa.fa-heart.icon-fav-on
-            %span 23
-            %i.fa.fa-eye.icon-view
-            %span 12345
-        %li.exp
-          = link_to image_tag("article2.jpg", { width: "110", height:"80", class: "img" }), root_path
-          %div.title
-            = link_to "あの「星のや」が南国へ？星野リゾートがタヒチに進出しホテル運営を開始", root_path
-          %div.expList
-            %p.day 2016年12月4日
-            %div.ListcountView
-              %i.fa.fa-eye.Listicon-view
-              %span 6122
-            = link_to "oniku_niconico", root_path, { class: "name" }
-          %div.expAdminCount
-            %i.fa.fa-heart.icon-fav-on
-            %span 23
-            %i.fa.fa-eye.icon-view
-            %span 12345
+        - @user.user_likes.each do |user_like|
+          %li.exp
+            = link_to image_tag("article2.jpg", { width: "110", height:"80", class: "img" }), root_path
+            %div.title
+              = link_to user_like.title, article_path(user_like.id)
+            %div.expList
+              %p.day
+                = user_like.created_at.strftime('%Y年%m月%d日')
+              %div.ListcountView
+                %i.fa.fa-eye.Listicon-view
+                %span 6122
+            %div.expAdminCount
+              %i.fa.fa-heart.icon-fav-on
+              %span
+                = user_like.likes_count
+              %i.fa.fa-eye.icon-view
+              %span 12345
 
-
+  / ユーザーprofのsideber
   %div.usersSideBar
     %div.usersHead
       %span.userIcon
@@ -53,26 +41,31 @@
       %ul.userData
         %li
           %p.h まとめ記事作成数
-          %p.amount 0
+          %p.amount
+            = @user.articles.count
+
         %li
-          %p.h お気に入りされた数
-          %p.amount 0
+          %p.h お気に入りした数
+          %p.amount
+            = @user.favorite_articles.count
         %li
           %p.h 月間ページビュー
           %p.amount 0
+
     %div.usersInfo
       %h1.userName
         = current_user.nickname
       %p.userId
         = "@" + current_user.nickname
+      %p.userProfile ここにはプロフィールコメントが入ります
 
 %div#mainFooter
   %div.content
     %ul.breadList
       %li
-        = link_to "トップページ  >", root_path, { title: "トップページ" }
+        = link_to "トップページ", root_path, { title: "トップページ" }
       %li
-        = link_to "jabsdbaf_kjasd  >" , root_path, { title: "jabsdbaf_kjasd" }
+        = link_to current_user.nickname , user_path(@user.id), { title: current_user.nickname }
       %li
         = link_to "お気に入りしたまとめ", root_path, { title: "お気に入りしたまとめ" }
 
