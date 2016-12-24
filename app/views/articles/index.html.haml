@@ -4,102 +4,7 @@
 
 %div#mainWrap
   %div.articleSide.sideBar
-    %div.area
-      %h2 エリア一覧
-      %ul
-        %li
-          = link_to image_tag("area2.jpg", { class: "img", width: "50", height: "50" }), root_path, { class: "areaName", title: "日本"}
-          = link_to "日本", root_path, { class: "areaName", title: "日本"}
-        %li
-          = link_to image_tag("area.png", { class: "img", width: "50", height: "50" }), root_path, { class: "areaName", title: "北米"}
-          = link_to "北米", root_path, { class: "areaName", title: "北米"}
-        %li
-          = link_to image_tag("area.png", { class: "img", width: "50", height: "50" }), root_path, { class: "areaName", title: "中南米"}
-          = link_to "中南米", root_path, { class: "areaName", title: "中南米"}
-        %li
-          = link_to image_tag("area.png", { class: "img", width: "50", height: "50" }), root_path, { class: "areaName", title: "アフリカ"}
-          = link_to "アフリカ", root_path, { class: "areaName", title: "アフリカ"}
-      %div.sideBarLink
-        = link_to "エリア一覧 >", root_path, { title: "エリア一覧"}
-
-    %div.tag
-      %h2 人気おすすめタグ
-      %ul
-        %li
-          %span.icon-tag
-            %i.fa.fa-hashtag
-          = link_to "カフェ", root_path, { class: "areaName", title: "カフェ"}
-        %li
-          %span.icon-tag
-            %i.fa.fa-hashtag
-          = link_to "ホテル", root_path, { class: "areaName", title: "ホテル"}
-        %li
-          %span.icon-tag
-            %i.fa.fa-hashtag
-          = link_to "温泉", root_path, { class: "areaName", title: "温泉"}
-        %li
-          %span.icon-tag
-            %i.fa.fa-hashtag
-          = link_to "お土産", root_path, { class: "areaName", title: "お土産"}
-        %li
-          %span.icon-tag
-            %i.fa.fa-hashtag
-          = link_to "東京の観光スポット", root_path, { class: "areaName", title: "東京の観光スポット"}
-        %li
-          %span.icon-tag
-            %i.fa.fa-hashtag
-          = link_to "紅葉", root_path, { class: "areaName", title: "紅葉"}
-      %div.sideBarLink
-        = link_to "人気のおすすめタグ一覧 >", root_path, { title: "人気のおすすめタグ一覧"}
-
-    %div.articlePopular
-      %h2 人気ランキング
-      %div.articleSideList.daily.on
-        %div.exp
-          %p.rankImg.rankImg1
-            %span
-            = link_to root_path, { class: "areaName", title: "北米"} do
-              = image_tag("article2.jpg", { class: "img", width: "70", height: "70" })
-          %div.title
-            = link_to "大切な人に思いを伝えたい。東京都内の“本命デート”で行きたいお店7選", root_path, { title: "大切な人に思いを伝えたい。東京都内の“本命デート”で行きたいお店7選" }
-        %div.exp
-          %p.rankImg.rankImg2
-            %span
-            = link_to root_path, { class: "areaName", title: "北米"} do
-              = image_tag("article2.jpg", { class: "img", width: "70", height: "70" })
-          %div.title
-            = link_to "言葉を失うほどの絶景。死ぬまでに見たい日本全国の美しい「滝」7選", root_path, { title: "言葉を失うほどの絶景。死ぬまでに見たい日本全国の美しい「滝」7選" }
-
-    %div.articleFeature
-      %h2 ピックアップ特集
-      %div.articleSideList
-        %div.exp
-          = link_to root_path, { class: "areaName", title: "北米"} do
-            = image_tag("article1.jpg", { class: "img", width: "70", height: "70" })
-          %div.title
-            = link_to "クリスマスディナー特集", root_path, { title: "クリスマスディナー特集" }
-        %div.exp
-          = link_to root_path, { class: "areaName", title: "北米"} do
-            = image_tag("article1.jpg", { class: "img", width: "70", height: "70" })
-          %div.title
-            = link_to "焼肉特集", root_path, { title: "焼肉特集" }
-      %div.sideBarLink
-        = link_to "全ての特集 >", root_path, { title: "全ての特集"}
-
-    %div.sidePr
-      %h2 おすすめのまとめ
-      %div.articleSideList
-        %div.exp
-          = link_to root_path, { class: "areaName", title: "北米"} do
-            = image_tag("article3.jpg", { class: "img", width: "70", height: "70" })
-          %div.title
-            = link_to "進化する都市「香港」が今いちばん面白いと言える5つの理由", root_path, { title: "進化する都市「香港」が今いちばん面白いと言える5つの理由" }
-        %div.exp
-          = link_to root_path, { class: "areaName", title: "北米"} do
-            = image_tag("article3.jpg", { class: "img", width: "70", height: "70" })
-          %div.title
-            = link_to "インスタ映え間違いなし！いいねが集まる香港のフォトジェニックなスポット6選", root_path, { title: "インスタ映え間違いなし！いいねが集まる香港のフォトジェニックなスポット6選" }
-
+    = render "articleSide"
 
   %div.articleMain.mainList
     %div.pickup
@@ -121,7 +26,7 @@
                   %div.ListcountView
                     %i.fa.fa-eye.Listicon-view
                     %span 6122
-                  = link_to "oniku_niconico", root_path, { class: "name" }
+                  = link_to article.user.nickname, root_path, { class: "name" }
 
       %div.paginateWrap
         %div.pagination

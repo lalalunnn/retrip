@@ -10,7 +10,7 @@
     %div.headerMenu
       - if user_signed_in?
         %span.userName
-          = link_to image_tag("icon_user_default.jpg", { width: "25", height: "25", class: "userIcon" }), users_show_path
+          = link_to image_tag("icon_user_default.jpg", { width: "25", height: "25", class: "userIcon" }), user_path(current_user.id)
           = current_user.nickname
         %span.newArt
           = link_to "まとめをつくる", new_article_path

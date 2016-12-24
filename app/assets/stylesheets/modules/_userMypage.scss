@@ -1,204 +1,162 @@
 #mainWrap.users {
   @include clearfix();
+  .usersArticle {
+    width: 700px;
+    float: right;
+    padding-top: 35px;
+  }
+  .usersTab {
+    padding-bottom: 10px;
+    ul {
+      @include clearfix();
+      li.selected {
+        width: 34%;
+        span {
+          color: #444;
+          font-weight: bold;
+          border-bottom: #444 solid 2px;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+      }
+      li {
+        width: 33%;
+        float: left;
+        text-align: center;
+        font-size: 14px;
+        border-bottom: #444 solid 1px;
+        span,
+        a {
+          display: block;
+          height: 50px;
+          line-height: 50px;
+          color: #aaa;
+          border-bottom: #fff solid 2px;
+          // color: #1991ba;
+        }
+        a:hover {
+          color: #1991ba;
+          border-bottom: #1991ba solid 2px;
+        }
+      }
+    }
+  }
 }
 
-#mainWrap.users .usersArticle {
-  width: 700px;
-  float: right;
-  padding-top: 35px;
-}
-
-#mainWrap.users .usersTab {
-  padding-bottom: 10px;
-}
-
-#mainWrap.users .usersTab ul {
-  @include clearfix();
-}
-
-#mainWrap.users .usersTab ul li.selected {
-  width: 34%;
-}
-
-#mainWrap.users .usersTab ul li {
-  width: 33%;
-  float: left;
-  text-align: center;
-  font-size: 14px;
-  border-bottom: #444 solid 1px;
-}
-
-#mainWrap.users .usersTab ul li.selected span {
-  color: #444;
-  font-weight: bold;
-  border-bottom: #444 solid 2px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#mainWrap.users .usersTab ul li span,
-#mainWrap.users .usersTab ul li a {
-  display: block;
-  height: 50px;
-  line-height: 50px;
-}
-
-#mainWrap.users .usersTab ul li {
-  width: 33%;
-  float: left;
-  text-align: center;
-  font-size: 14px;
-  border-bottom: #444 solid 1px;
-}
-
-#mainWrap.users .usersTab ul li a {
-  color: #aaa;
-  border-bottom: #fff solid 2px;
-}
-
-#mainWrap.users .usersTab ul li a:hover {
-  color: #1991ba;
-  border-bottom: #1991ba solid 2px;
-}
-
-#mainWrap.users .usersTab ul li span,
-#mainWrap.users .usersTab ul li a {
-  display: block;
-  height: 50px;
-  line-height: 50px;
-}
-
-#mainWrap.users .usersTab ul li span,
-#mainWrap.users .usersTab ul li a:hover {
-  color: #1991ba;
-}
 
 #mainWrap.users .expBottomGridList {
   @include clearfix();
+  .exp {
+    padding: 17px 150px 17px 130px;
+    min-height: 120px;
+    .img {
+      width: 110px;
+      height: 80px;
+      top: 20px;
+    }
+    .title {
+      font-size: 18px;
+      line-height: 1.5;
+      max-height: 55px;
+      margin-bottom: 0;
+    }
+    .expList {
+      font-size: 11px;
+      left: 130px;
+      bottom: 18px;
+    }
+    .expAdminCount,
+    .expAdminFav {
+      color: #555;
+      font-family: 'Montserrat',sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: absolute;
+      right: 0;
+      bottom: 17px;
+    }
+  }
 }
-
-#mainWrap.users .expBottomGridList .exp {
-  padding: 17px 150px 17px 130px;
-  min-height: 120px;
-}
-
-#mainWrap.users .expBottomGridList .exp .img {
-  width: 110px;
-  height: 80px;
-  top: 20px;
-}
-
-#mainWrap.users .expBottomGridList .exp .title {
-  font-size: 18px;
-  line-height: 1.5;
-  max-height: 55px;
-  margin-bottom: 0;
-}
-
-#mainWrap.users .expBottomGridList .exp .expList {
-  font-size: 11px;
-  left: 130px;
-  bottom: 18px;
-}
-
-#mainWrap.users .expBottomGridList .exp .expAdminCount,
-#mainWrap.users .expBottomGridList .exp .expAdminFav {
-  color: #555;
-  font-family: 'Montserrat',sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  position: absolute;
-  right: 0;
-  bottom: 17px;
-}
-
-
-
 
 #mainWrap.users .usersSideBar {
   width: 300px;
   float: left;
   padding-top: 40px;
-}
-
-#mainWrap.users .usersSideBar .usersHead {
-  position: relative;
-  padding-left: 175px;
-  margin-bottom: 20px;
-}
-
-#mainWrap.users .usersSideBar .usersHead .userIcon img {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  width: 155px;
-  height: 155px;
-  -webkit-border-radius: 80px;
-  -moz-border-radius: 80px;
-  -ms-border-radius: 80px;
-  -o-border-radius: 80px;
-  border-radius: 80px;
-  background-position: center;
-  background-size: cover;
-}
-
-#mainWrap.users .usersSideBar .usersHead .userData {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
-
-#mainWrap.users .usersSideBar .usersHead .userData li {
-  padding: 10px 0 0;
-  height: 58px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-  text-align: center;
-  border-bottom: #eee 1px solid;
-}
-
-#mainWrap.users .usersSideBar .usersHead .userData li .h {
-  font-size: 10px;
-  color: #888;
-}
-
-#mainWrap.users .usersSideBar .usersHead .userData li .amount {
-  color: #555;
-  font-family: 'Montserrat',sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  .usersHead {
+    position: relative;
+    padding-left: 175px;
+    margin-bottom: 20px;
+    .userIcon img {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 155px;
+      height: 155px;
+      -webkit-border-radius: 80px;
+      -moz-border-radius: 80px;
+      -ms-border-radius: 80px;
+      -o-border-radius: 80px;
+      border-radius: 80px;
+      background-position: center;
+      background-size: cover;
+    }
+    .userData {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      li {
+        padding: 10px 0 0;
+        height: 58px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+        border-bottom: #eee 1px solid;
+        .h {
+          font-size: 10px;
+          color: #888;
+        }
+        .amount {
+          color: #555;
+          font-family: 'Montserrat',sans-serif;
+          font-size: 18px;
+          font-weight: bold;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+      }
+    }
+  }
 }
 
 #mainWrap.users .usersSideBar .usersInfo {
   background: #F7F7F7;
   padding: 27px 22px 30px 25px;
+  .userName {
+    padding-bottom: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Montserrat',sans-serif;
+    text-align: center;
+  }
+  .userId {
+    font-family: 'Montserrat',sans-serif;
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+  }
+  .userProfile {
+    color: #666;
+    padding: 17px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
 }
-
-#mainWrap.users .usersSideBar .usersInfo .userName {
-  padding-bottom: 2px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-#mainWrap.users .usersSideBar .usersInfo .userName,
-#mainWrap.users .usersSideBar .usersInfo .userId {
-  font-family: 'Montserrat',sans-serif;
-  text-align: center;
-}
-
-#mainWrap.users .usersSideBar .usersInfo .userId {
-  font-size: 13px;
-  color: #aaa;
-}
-
 
 
 #mainHeader, #mainFooter {

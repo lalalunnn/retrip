@@ -1,6 +1,15 @@
 class Article < ApplicationRecord
-  has_many :favorite_articles
-  has_many :users, through: :favorite_articles
+
+  belongs_to :user
+  has_many :favorite_articles, dependent: :destroy
+
+  def favorite_article_user(user_id)
+   favorite_articles.find_by(user_id: user_id)
+  end
+
+  # favorite_articlesを通して関連するusersを取得
+  # article/showのお気に入り一覧を出す時に使用
+  has_many :article_lists, through: :favorite_articles, source: :user
 
   validates :title, presence: true
   validates :body, presence: true
