@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20161222103318) do
-
+ActiveRecord::Schema.define(version: 20161226053032) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "title",       limit: 65535, null: false
@@ -32,6 +30,21 @@ ActiveRecord::Schema.define(version: 20161222103318) do
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_favorite_articles_on_article_id", using: :btree
     t.index ["user_id"], name: "index_favorite_articles_on_user_id", using: :btree
+  end
+
+  create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "areaName"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
+    t.integer  "children_count"
+    t.index ["depth"], name: "index_locations_on_depth", using: :btree
+    t.index ["lft"], name: "index_locations_on_lft", using: :btree
+    t.index ["parent_id"], name: "index_locations_on_parent_id", using: :btree
+    t.index ["rgt"], name: "index_locations_on_rgt", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
