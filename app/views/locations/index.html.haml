@@ -1,21 +1,55 @@
-%h1 Listing locations
+= render "articles/header"
 
-%table
-  %thead
-    %tr
-      %th Areaname
-      %th
-      %th
-      %th
+%div#mainHeader.articleHeader
+  %div.content
+    %ul.breadList
+      %li
+        = link_to "トップページ", root_path, { title: "トップページ" }
+      %li
+        %span エリア一覧
 
-  %tbody
-    - @locations.each do |location|
-      %tr
-        %td= location.areaName
-        %td= link_to 'Show', location
-        %td= link_to 'Edit', edit_location_path(location)
-        %td= link_to 'Destroy', location, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%div#mainWrap.article
+  %div.contentTopTitle_area
+    %h1= link_to "エリア一覧", locations_path
+    %p.desc
+    このページには、RETRIPの記事に関連するエリアが集まっています。
 
-%br
+  %div.articleSide.sideBar
+    = render "articles/articleSide"
 
-= link_to 'New Location', new_location_path
+  %div.articleMain
+    %div.areaList
+      - @dep.each do |id, areaName, parent|
+        %h2= link_to areaName, location_path(id)
+
+        %ul
+          - @child.each do |child_id,child_areaName,child_parent|
+            - if id == child_parent
+              %li
+                %div.areaBlock_area
+                  = link_to image_tag("area2.jpg", { class: "img", width: "50", height: "50" }), location_path(child_id), { class: "areaName", title: child_areaName}
+                  = link_to child_areaName, location_path(child_id), { class: "areaName", title: child_areaName}
+
+/ 地名登録用
+/   %table
+/     %tbody
+/       - nested_set_options(@locations) { |i| "#{'No-' * i.level} #{i.areaName}" }.each do |areaName, id|
+/         %tr
+/           %td= areaName
+/           %td= link_to 'Show', location_path(id)
+/           %td= link_to 'Edit', edit_location_path(id)
+/           / # %td= link_to 'Destroy', location_path(id), method: :delete, data: { confirm: 'Are you sure?' }
+/   %br
+/   = link_to '新規登録Location', new_location_path
+
+%div#mainFooter
+  %div.content
+    %ul.breadList
+      %li
+        = link_to "トップページ", root_path, { title: "トップページ" }
+      %li
+        %span エリア一覧
+
+= render "articles/footer_induction"
+
+= render "articles/footer"

@@ -1,9 +1,55 @@
 %p#notice= notice
+= render "articles/header"
 
-%p
-  %b Areaname:
-  = @location.areaName
+%div#mainHeader.articleHeader
+  %div.content
+    %ul.breadList
+      %li
+        = link_to "トップページ", root_path, { title: "トップページ" }
+      %li
+        = link_to "エリア一覧", locations_path, { title: "エリア一覧" }
 
-= link_to 'Edit', edit_location_path(@location)
-\|
-= link_to 'Back', locations_path
+%div#mainWrap.article
+  %div.locationTitle
+    %span.img
+    %div.contentTopTitle_area
+      %h1= link_to @location.areaName, location_path(@location.id)
+      %p.desc
+        RETRIPには「#{@location.areaName}」エリアに関する旅行・観光・おでかけのまとめ記事が957件掲載されています。
+        %br
+        おすすめの観光スポットや人気ランキングなど「#{@location.areaName}」エリアに関する旅行・観光・おでかけのまとめ記事はRETRIP[リトリップ]で。
+
+  %div.articleSide.sideBar
+    = render "articles/articleSide"
+
+  %div.articleMain
+    %div.headerLocation
+      %h2 「#{@location.areaName}」に属するエリア
+      %ul.location
+        - @children.each do |child|
+          %li
+            %span= link_to child.areaName, location_path(child.id)
+
+
+    %section.expBottomGridList
+      %h2 「#{@location.areaName}」に関するまとめ記事一覧
+
+/ = link_to 'Edit', edit_location_path(@location)
+/ \|
+/ = link_to 'Back', locations_path
+
+
+
+
+
+%div#mainFooter
+  %div.content
+    %ul.breadList
+      %li
+        = link_to "トップページ", root_path, { title: "トップページ" }
+      %li
+        %span エリア一覧
+
+= render "articles/footer_induction"
+
+= render "articles/footer"
