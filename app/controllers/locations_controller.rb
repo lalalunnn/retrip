@@ -5,11 +5,15 @@ class LocationsController < ApplicationController
   # GET /locations.json
   def index
     @locations = Location.all
+    @dep = @locations.where(depth: 1).pluck(:id, :areaName, :parent_id)
+    @child = @locations.where(depth: 2).pluck(:id, :areaName, :parent_id)
   end
 
   # GET /locations/1
   # GET /locations/1.json
   def show
+    # 紐付いた記事childのall取得
+    @children = Location.where(parent_id: @location.id)
   end
 
   # GET /locations/new
@@ -28,7 +32,7 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to @location, notice: 'Location was successfully created.' }
+        format.html { redirect_to @location, notice: '登録完了です' }
         format.json { render :show, status: :created, location: @location }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class LocationsController < ApplicationController
   def update
     respond_to do |format|
       if @location.update(location_params)
-        format.html { redirect_to @location, notice: 'Location was successfully updated.' }
+        format.html { redirect_to @location, notice: '編集できました' }
         format.json { render :show, status: :ok, location: @location }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class LocationsController < ApplicationController
   def destroy
     @location.destroy
     respond_to do |format|
-      format.html { redirect_to locations_url, notice: 'Location was successfully destroyed.' }
+      format.html { redirect_to locations_url, notice: '削除しました' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +73,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:areaName)
+      params.require(:location).permit(:areaName, :parent_id)
     end
 end
