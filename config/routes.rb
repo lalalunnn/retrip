@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :articles, only: [:index, :new, :create, :show]
+  resources :locations
 
   post 'articles/:article_id' => 'favorite_articles#create', as: 'like'
   delete 'articles/:article_id' => 'favorite_articles#destroy', as: 'unlike'
