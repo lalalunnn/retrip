@@ -14,15 +14,15 @@
           = current_user.nickname
         %span.newArt
           = link_to "まとめをつくる", new_article_path
-        %span.newSet
-          = link_to image_tag("icon_header_menu.png", { width: "25", height: "22", alt: "MENU" }), new_user_registration_path
+        %span.newSet#Dialog-method
+          = image_tag("icon_header_menu.png", { width: "25", height: "22", alt: "MENU" })
       - else
         %span.newArt
           = link_to "まとめをつくる", new_user_session_path
-        %span.newSet
-          = link_to image_tag("icon_header_menu.png", { width: "25", height: "22", alt: "MENU" }), new_user_registration_path
+        %span.newSet#Dialog-method
+          = image_tag("icon_header_menu.png", { width: "25", height: "22", alt: "MENU" })
 
-      %ul.headerMenuDialog
+      %ul.headerMenuDialog#Dialog
         - if user_signed_in?
           %li
             = link_to 'お知らせ', root_path
