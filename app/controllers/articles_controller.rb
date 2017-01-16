@@ -21,7 +21,7 @@ before_action :set_article, only: [:show]
     if @article.save
       redirect_to root_path, notice: '投稿できました'
     else
-      redirect_to @article, alert: 'メッセージを入力してください'
+      render :new, alert: '未入力の欄があります'
     end
   end
 
@@ -31,6 +31,9 @@ before_action :set_article, only: [:show]
     @article_id = @articles.id
 
     @user_id = current_user.id
+
+    # headerパンくずリスト表示用
+    @location = @article.location
 
   end
 
@@ -44,7 +47,7 @@ before_action :set_article, only: [:show]
     end
 
     def article_params
-      params.require(:article).permit(:title, :body).merge(user_id: current_user.id)
+      params.require(:article).permit(:title, :body, :location_id).merge(user_id: current_user.id)
     end
 end
 

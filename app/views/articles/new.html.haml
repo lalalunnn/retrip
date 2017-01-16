@@ -8,6 +8,8 @@
         .articleInput
           = f.text_field :title, class: "inputArea", placeholder: "まとめタイトルを入力する"
 
+          = f.collection_select :location_id, Location.offset(1), :id, :areaName, {prompt: true}, {class: "inputArea"}
+
           = f.text_area :body, class: "inputArea", placeholder: "まとめの説明文を入力する"
 
           %label.article_image--file

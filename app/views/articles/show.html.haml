@@ -7,10 +7,13 @@
         = link_to "トップページ", root_path, { title: "トップページ" }
       %li
         = link_to "エリア一覧", root_path, { title: "エリア一覧" }
+
+      - @location.ancestors.each do |location|
+        - if location.depth > 0
+          %li
+            = link_to location.areaName, location_path(location.id), { title: location.areaName }
       %li
-        = link_to "アジア", root_path, { title: "アジア" }
-      %li
-        = link_to "日本", root_path, { title: "日本" }
+        = link_to @location.areaName, location_path(@location.id), { title: @location.areaName }
 
 
 %div#mainWrap.articlesContent

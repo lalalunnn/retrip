@@ -11,6 +11,9 @@ class Article < ApplicationRecord
   # article/showのお気に入り一覧を出す時に使用
   has_many :article_lists, through: :favorite_articles, source: :user
 
+  belongs_to :location
+
   validates :title, presence: true
   validates :body, presence: true
+  validates :location_id, presence: true
 end

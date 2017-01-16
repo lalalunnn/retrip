@@ -12,8 +12,25 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
-    # 紐付いた記事childのall取得
+    # locationのリンク
+    # params:idから紐付いたparent_idを、
+    # location.allから参照して数字が合致する地名のまとまりを取得
     @children = Location.where(parent_id: @location.id)
+
+    # showのarticle/index
+    # 現在の表示中のロケーションの子ロケーションを全て取得
+    # 取得してきた子ロケーションに紐づく記事を全て取得
+    # @article_childsへ取得データを配列形式で代入
+    @article_childs = []
+    @location.self_and_descendants.each do |location|
+      @article_eachlocations = Article.where(location_id: location.id).includes(:user)
+      @article_eachlocations.each do |article|
+        @article_childs << article
+      end
+    end
+    # 配列の中身がlocationの取ってきた順になっているので並び替え
+    @article_childs = @article_childs.sort.reverse
+
   end
 
   # GET /locations/new
