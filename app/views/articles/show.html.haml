@@ -37,10 +37,13 @@
           %p.sum.ng-binding 33256
           %p.sumText View
 
-      - if current_user.favorite_articles.find_by(article_id: @article.id)
-        = link_to image_tag('icon_heart.svg', width: "20")+" 取り消す", unlike_path(@article.id), { method: :delete, class: "favBtn"}
+      - if user_signed_in?
+        - if current_user.favorite_articles.find_by(article_id: @article.id)
+          = link_to image_tag('icon_heart.svg', width: "20")+" 取り消す", unlike_path(@article.id), { method: :delete, class: "favBtn"}
+        - else
+          = link_to image_tag('icon_red_heart.svg', width: "20")+" お気に入り", like_path(@article.id), {method: :post , class: "favBtn" }
       - else
-        = link_to image_tag('icon_red_heart.svg', width: "20")+" お気に入り", like_path(@article.id), {method: :post , class: "favBtn" }
+        = link_to image_tag('icon_red_heart.svg', width: "20")+" お気に入り", new_user_session_path, {class: "favBtn" }
 
   %div.articleSide.sideBar
     = render "articles/articleSide"
@@ -70,17 +73,13 @@
         = link_to "facebookでシェア", root_path, {class: "facebook" }
         = link_to "twitterでシェア", root_path, {class: "twitter" }
 
-        - if current_user.favorite_articles.find_by(article_id: @article.id)
-          = link_to image_tag('icon_heart.svg', width: "20"), unlike_path(@article.id), { method: :delete, class: "favBtn"}
+        - if user_signed_in?
+          - if current_user.favorite_articles.find_by(article_id: @article.id)
+            = link_to image_tag('icon_heart.svg', width: "20"), unlike_path(@article.id), { method: :delete, class: "favBtn"}
+          - else
+            = link_to image_tag('icon_red_heart.svg', width: "20"), like_path(@article.id), {method: :post , class: "favBtn" }
         - else
-          = link_to image_tag('icon_red_heart.svg', width: "20"), like_path(@article.id), {method: :post , class: "favBtn" }
-
-        / - if current_user.favorite_articles.find_by(article_id: @article.id)
-        /   = link_to favorite_article_path(@favorite_article.id), { method: :delete, class: "fav" } do
-        /     .icon-fav-on.i.fa.fa-heart
-        / - else
-        /   = link_to favorite_articles_path, { method: :post, class: "fav" } do
-        /     .icon-fav-off.i.fa.fa-heart-o
+          = link_to image_tag('icon_red_heart.svg', width: "20"), new_user_session_path, {class: "favBtn" }
 
 %div#mainFooter
   %div.content

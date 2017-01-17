@@ -1,10 +1,12 @@
-/ %table
-/   %th= link_to 'locationの新規登録する！', new_location_path
+-if user_signed_in?
+  - if current_user.nickname == "admin"
+    %table
+      %th= link_to 'locationの新規登録', new_location_path
 
-/   %tbody
-/     - nested_set_options(@locations) { |i| "#{'No-' * i.level} #{i.areaName}" }.each do |areaName, id|
-/       %tr
-/         %td= areaName
-/         %td= link_to 'Show', location_path(id)
-/         %td= link_to 'Edit', edit_location_path(id)
-/         %td= link_to 'Destroy', location_path(id), method: :delete, data: { confirm: 'Are you sure?' }
+      %tbody
+        - nested_set_options(@locations) { |i| "#{'o-' * i.level} #{i.areaName}" }.each do |areaName, id|
+          %tr
+            %td= areaName
+            %td= link_to 'Show', location_path(id)
+            %td= link_to 'Edit', edit_location_path(id)
+            %td= link_to 'Destroy', location_path(id), method: :delete, data: { confirm: 'Are you sure?' }
