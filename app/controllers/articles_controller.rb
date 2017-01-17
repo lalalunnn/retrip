@@ -28,9 +28,11 @@ before_action :set_article, only: [:show]
   # articleのshow
   def show
     @articles = Article.find(params[:id])
-    @article_id = @articles.id
+    if user_signed_in?
+      @user_id = current_user.id
+    end
 
-    @user_id = current_user.id
+    @article_id = @articles.id
 
     # headerパンくずリスト表示用
     @location = @article.location
@@ -39,7 +41,9 @@ before_action :set_article, only: [:show]
 
   private
     def set_user
-      @user = User.find(current_user.id)
+      if user_signed_in?
+        @user = User.find(current_user.id)
+      end
     end
 
     def set_article
