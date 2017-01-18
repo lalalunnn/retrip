@@ -1,6 +1,6 @@
 .footerInduction.inductionB {
   background: #F9F9F9;
-  background: url("footer_induction_bg.jpg") top no-repeat;
+  background: image-url("footer_induction_bg.jpg") top no-repeat;
   background-size: auto 235px;
 }
 
@@ -21,7 +21,7 @@
   -o-box-sizing: border-box;
   box-sizing: border-box;
   padding: 40px 0 0 335px;
-  background: url("footer_induction.png") 41px top no-repeat;
+  background: image-url("footer_induction.png") 41px top no-repeat;
   background-size: auto 235px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
