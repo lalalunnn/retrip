@@ -15,7 +15,8 @@ default: &default
   pool: 5
   username: root
   password:
-  socket: /tmp/mysql.sock
+  # socket: /tmp/mysql.sock
+  socket: /var/lib/mysql/mysql.sock
 
 development:
   <<: *default
@@ -50,5 +51,6 @@ test:
 production:
   <<: *default
   database: retrip_production
-  username: retrip
-  password: <%= ENV['RETRIP_DATABASE_PASSWORD'] %>
+  username: root
+  password:
+  socket: /var/lib/mysql/mysql.sock
