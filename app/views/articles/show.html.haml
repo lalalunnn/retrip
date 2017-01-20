@@ -63,7 +63,10 @@
           %li.pocket
             あとで
         %div.contentTop
-          = image_tag @article.image, class: "img", width: "700"
+          - if @article.image.blank?
+            = image_tag 'no_image.png', class: "img", width: "700", height: "500"
+          - else
+            = image_tag @article.image, class: "img", width: "700"
         %div.contentTopDesc
           = @article.body
         %article
@@ -87,9 +90,9 @@
       %li
         = link_to "トップページ", root_path, { title: "トップページ" }
       %li
-        = link_to "jabsdbaf_kjasd" , root_path, { title: "jabsdbaf_kjasd" }
+        = link_to current_user.nickname , user_path(current_user.id), { title: current_user.nickname }
       %li
-        = link_to "お気に入りしたまとめ", root_path, { title: "お気に入りしたまとめ" }
+        = link_to "お気に入りしたまとめ", user_path(current_user.id), { title: "お気に入りしたまとめ" }
 
 = render "articles/footer_induction"
 
