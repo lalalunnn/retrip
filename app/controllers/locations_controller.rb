@@ -12,6 +12,7 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @locations = Location.all
     # locationのリンク
     # params:idから紐付いたparent_idを、
     # location.allから参照して数字が合致する地名のまとまりを取得

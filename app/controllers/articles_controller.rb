@@ -9,6 +9,8 @@ before_action :set_article, only: [:show]
 
     # indexMain(3画像)
     @sliders = Article.order("RAND()").limit(3).includes(:user)
+
+    @locations = Location.all
   end
 
   def new
