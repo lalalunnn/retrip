@@ -1,14 +1,27 @@
 %div#indexMain
   %div.content
     - @sliders.each do |slider|
-      = link_to article_path(slider.id), { class: "contentSlider", title: slider.title } do
-        = image_tag("article2.jpg", { class: "contentSliderImg", width: "auto", height: "300" })
-        %div.contentSliderTitle
-          %h1
-            = slider.title
-        %div.contentSliderInfo
-          %div.countView
-            %i.fa.fa-eye.icon-view
-            %span 12345
-          %span.name
-            = slider.user.nickname
+      - if slider.image.blank?
+        = link_to article_path(slider.id), { class: "contentSlider", title: slider.title } do
+          = image_tag('no_image.png', { class: "contentSliderImg", width: "auto", height: "300" })
+          %div.contentSliderTitle
+            %h1
+              = slider.title
+          %div.contentSliderInfo
+            %div.countView
+              %i.fa.fa-eye.icon-view
+              %span 12345
+            %span.name
+              = slider.user.nickname
+      - else
+        = link_to article_path(slider.id), { class: "contentSlider", title: slider.title } do
+          = image_tag(slider.image, { class: "contentSliderImg", width: "auto", height: "300" })
+          %div.contentSliderTitle
+            %h1
+              = slider.title
+          %div.contentSliderInfo
+            %div.countView
+              %i.fa.fa-eye.icon-view
+              %span 12345
+            %span.name
+              = slider.user.nickname

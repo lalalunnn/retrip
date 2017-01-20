@@ -16,4 +16,7 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
   validates :location_id, presence: true
+
+  # carrierwaveとモデルの関連付け
+  mount_uploader :image, ImageUploader
 end

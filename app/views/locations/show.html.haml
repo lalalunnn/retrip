@@ -49,8 +49,12 @@
           - @article_childs.each do |article_child|
             %li
               %div.exp
-                = link_to article_path(article_child.id), { title: article_child.title } do
-                  = image_tag("article3.jpg", { class: "img", width: "170", height: "120" })
+                - if article_child.image.blank?
+                  = link_to article_path(article_child.id), { title: article_child.title } do
+                    = image_tag('no_image.png', { class: "img", width: "170", height: "120" })
+                - else
+                  = link_to article_path(article_child.id), { title: article_child.title } do
+                    = image_tag(article_child.image, { class: "img", width: "170", height: "120" })
                 %div.title
                   = link_to article_child.title, article_path(article_child.id), { title: article_child.title }
                 %p.expDesc
@@ -62,13 +66,6 @@
                     %i.fa.fa-eye.Listicon-view
                     %span 6122
                   = link_to article_child.user.nickname, root_path, { class: "name" }
-
-
-/ = link_to 'Edit', edit_location_path(@location)
-/ \|
-/ = link_to 'Back', locations_path
-
-
 
 %div#mainFooter
   %div.content

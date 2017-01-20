@@ -15,9 +15,12 @@
     / ユーザーがお気に入りしたまとめ一覧を表示
     %section.expBottomGridList
       %ul
-        - @user.user_likes.each do |user_like|
+        - @user_likes_list.each do |user_like|
           %li.exp
-            = link_to image_tag("article2.jpg", { width: "110", height:"80", class: "img" }), root_path
+            - if user_like.image.blank?
+              = link_to image_tag('no_image.png', { width: "110", height:"80", class: "img" }), article_path(user_like.id)
+            - else
+              = link_to image_tag(user_like.image, { width: "110", height:"80", class: "img" }), article_path(user_like.id)
             %div.title
               = link_to user_like.title, article_path(user_like.id)
             %div.expList
@@ -67,7 +70,7 @@
       %li
         = link_to current_user.nickname , user_path(@user.id), { title: current_user.nickname }
       %li
-        = link_to "お気に入りしたまとめ", root_path, { title: "お気に入りしたまとめ" }
+        お気に入りしたまとめ
 
 
 = render "articles/footer_induction"
