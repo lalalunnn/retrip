@@ -51,7 +51,7 @@ before_action :set_article, only: [:show]
     end
 
     def article_params
-      params.require(:article).permit(:title, :body, :location_id).merge(user_id: current_user.id)
+      params.require(:article).permit(:title, :body, :image, :location_id).merge(user_id: current_user.id)
     end
 end
 
