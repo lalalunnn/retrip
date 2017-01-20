@@ -8,14 +8,14 @@
 
   %div.articleMain.mainList
     %div.pickup
-      %h2 注目のまとめだよ
+      %h2 注目のまとめ
       %section.expBottomGridList
         %ul
           - @articles.each do |article|
             %li
               %div.exp
                 = link_to article_path(article.id), { title: article.title } do
-                  = image_tag("article3.jpg", { class: "img", width: "170", height: "120" })
+                  = image_tag(article.image, { class: "img", width: "170", height: "120" })
                 %div.title
                   = link_to article.title, article_path(article.id), { title: article.title }
                 %p.expDesc

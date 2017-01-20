@@ -50,7 +50,7 @@
             %li
               %div.exp
                 = link_to article_path(article_child.id), { title: article_child.title } do
-                  = image_tag("article3.jpg", { class: "img", width: "170", height: "120" })
+                  = image_tag(article_child.image, { class: "img", width: "170", height: "120" })
                 %div.title
                   = link_to article_child.title, article_path(article_child.id), { title: article_child.title }
                 %p.expDesc

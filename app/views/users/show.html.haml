@@ -17,7 +17,7 @@
       %ul
         - @user.user_likes.each do |user_like|
           %li.exp
-            = link_to image_tag("article2.jpg", { width: "110", height:"80", class: "img" }), root_path
+            = link_to image_tag(user_like.image, { width: "110", height:"80", class: "img" }), root_path
             %div.title
               = link_to user_like.title, article_path(user_like.id)
             %div.expList
