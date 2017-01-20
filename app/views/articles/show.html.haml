@@ -90,9 +90,16 @@
       %li
         = link_to "トップページ", root_path, { title: "トップページ" }
       %li
-        = link_to current_user.nickname , user_path(current_user.id), { title: current_user.nickname }
+        = link_to "エリア一覧", root_path, { title: "エリア一覧" }
+
+      - @location.ancestors.each do |location|
+        - if location.depth > 0
+          %li
+            = link_to location.areaName, location_path(location.id), { title: location.areaName }
       %li
-        = link_to "お気に入りしたまとめ", user_path(current_user.id), { title: "お気に入りしたまとめ" }
+        = link_to @location.areaName, location_path(@location.id), { title: @location.areaName }
+      %li
+        = @article.title
 
 = render "articles/footer_induction"
 
