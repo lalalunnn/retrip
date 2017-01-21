@@ -19,4 +19,6 @@ class Article < ApplicationRecord
 
   # carrierwaveとモデルの関連付け
   mount_uploader :image, ImageUploader
+  # impressionableとモデルの関連付け
+  is_impressionable
 end

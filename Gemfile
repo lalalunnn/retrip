@@ -55,6 +55,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'awesome_nested_set'
 gem 'carrierwave'
+gem 'impressionist'
 
 
 group :production do
