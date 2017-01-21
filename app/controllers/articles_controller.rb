@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 before_action :set_user, only: [ :new, :create, :show]
 before_action :set_article, only: [:show]
-
+impressionist actions: [ :show]
 
   def index
     # 注目のまとめ(全レコードの取得)
@@ -39,6 +39,9 @@ before_action :set_article, only: [:show]
     # headerパンくずリスト表示用
     @location = @article.location
 
+    @locations = Location.all
+
+    @impressionist_count = Article.find(params[:id]).impressionist_count
   end
 
   private
