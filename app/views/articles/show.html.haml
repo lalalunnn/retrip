@@ -15,7 +15,6 @@
       %li
         = link_to @location.areaName, location_path(@location.id), { title: @location.areaName }
 
-
 %div#mainWrap.articlesContent
   %div.contentTopTitle
     %h1
@@ -34,7 +33,8 @@
           %p.sumText お気に入り
       %div.contentStatusAreaCount
         = link_to root_path do
-          %p.sum.ng-binding 33256
+          %p.sum.ng-binding
+            = @impressionist_count
           %p.sumText View
 
       - if user_signed_in?

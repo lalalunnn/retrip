@@ -10,7 +10,8 @@
           %div.contentSliderInfo
             %div.countView
               %i.fa.fa-eye.icon-view
-              %span 12345
+              - @impressionist_count = Article.find(slider.id).impressionist_count
+              %span= @impressionist_count
             %span.name
               = slider.user.nickname
       - else
@@ -22,6 +23,7 @@
           %div.contentSliderInfo
             %div.countView
               %i.fa.fa-eye.icon-view
-              %span 12345
+              - @impressionist_count = Article.find(slider.id).impressionist_count
+              %span= @impressionist_count
             %span.name
               = slider.user.nickname

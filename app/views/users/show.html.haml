@@ -8,9 +8,9 @@
         %li.selected
           %span お気に入りしたまとめ
         %li
-          = link_to "お気に入りしたスポット", root_path, { title: "お気に入りしたスポット" }
+          = link_to "お気に入りしたスポット", user_path(current_user.id), { title: "お気に入りしたスポット" }
         %li
-          = link_to "作ったまとめ", root_path, { title: "作ったまとめ" }
+          = link_to "作ったまとめ", user_path(current_user.id), { title: "作ったまとめ" }
 
     / ユーザーがお気に入りしたまとめ一覧を表示
     %section.expBottomGridList
@@ -27,14 +27,15 @@
               %p.day
                 = user_like.created_at.strftime('%Y年%m月%d日')
               %div.ListcountView
-                %i.fa.fa-eye.Listicon-view
-                %span 6122
+                %span
+                  = user_like.user.nickname
             %div.expAdminCount
               %i.fa.fa-heart.icon-fav-on
               %span
                 = user_like.likes_count
               %i.fa.fa-eye.icon-view
-              %span 12345
+              - @impressionist_count = Article.find(user_like.id).impressionist_count
+              %span= @impressionist_count
 
   / ユーザーprofのsideber
   %div.usersSideBar
