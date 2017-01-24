@@ -64,7 +64,8 @@
                     = article_child.created_at.strftime('%Y年%m月%d日')
                   %div.ListcountView
                     %i.fa.fa-eye.Listicon-view
-                    %span 6122
+                    - @impressionist_count = Article.find(article_child.id).impressionist_count
+                    %span= @impressionist_count
                   = link_to article_child.user.nickname, root_path, { class: "name" }
 
 %div#mainFooter
